@@ -1,0 +1,17 @@
+ce que j'envoie à claude : 
+
+tu peux me trouver l'erreur et me l'expliquer simplement avec 2-3v phrases voir 1seule si possible #include <stdio.h>  int main(int argc, char **argv, char **envp) {     if(argc < 5);     {         printf("Not enough arguments.\n");     }      return 0; }
+*
+
+il me repond : 
+
+L'erreur
+cif(argc < 5);  // <-- Point-virgule en trop !
+Le point-virgule après le if termine l'instruction conditionnelle immédiatement. Le bloc { printf(...); } s'exécute donc toujours, peu importe le nombre d'arguments.
+Correction
+cif(argc < 5)  // Sans point-virgule
+{
+    printf("Not enough arguments.\n");
+}
+
+il m'explique l'erreur avec le code de l'erreur, il me dit pq ça fonctionne pas et me corrige le code 
