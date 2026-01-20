@@ -1,0 +1,14 @@
+ce que j'ai dit a claude : 
+
+
+genere moi une fonction php qui prend un nombre inconnu et illimité d'arguments et affiche les moi
+
+
+et sa reponse : 
+
+
+function afficher(...$args) {
+    foreach ($args as $arg) {
+        echo $arg . "\n";
+    }
+}
