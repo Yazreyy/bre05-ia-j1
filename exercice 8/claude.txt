@@ -1,0 +1,8 @@
+ce que j'ai demandé a claude  : 
+
+egenere moi un script shell qui permet d'afficher ta liste de parametres par ordre alphabetique le plus simplifier possible
+
+sa reponse : 
+
+#!/bin/bash
+printf "%s\n" "$@" | sort 
