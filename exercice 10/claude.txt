@@ -1,0 +1,35 @@
+ce que j'ai dit à claude : 
+
+
+crée moi une solution en php qui permet de generer des utilisateurs aleatoires  pour peupler une application le plus simplement possible 
+
+sa réponse : 
+
+
+function genererUtilisateur() {
+    $prenoms = ["Jean", "Marie", "Pierre", "Sophie", "Lucas", "Emma", "Thomas", "Léa", "Hugo", "Camille"];
+    $noms = ["Martin", "Bernard", "Dubois", "Moreau", "Laurent", "Simon", "Michel", "Leroy", "Roux", "David"];
+    
+    $prenom = $prenoms[array_rand($prenoms)];
+    $nom = $noms[array_rand($noms)];
+    
+    return [
+        "prenom" => $prenom,
+        "nom" => $nom,
+        "email" => strtolower($prenom . "." . $nom . rand(1, 999) . "@email.com"),
+        "age" => rand(18, 65)
+    ];
+}
+
+function genererUtilisateurs($nombre) {
+    $utilisateurs = [];
+    for ($i = 0; $i < $nombre; $i++) {
+        $utilisateurs[] = genererUtilisateur();
+    }
+    return $utilisateurs;
+}
+
+Utilisation :
+php$users = genererUtilisateurs(10);
+print_r($users);
+Cela génère un tableau de 10 utilisateurs avec prénom, nom, email et âge aléatoires.
