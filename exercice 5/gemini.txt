@@ -1,0 +1,31 @@
+ce que j'ai demandé a gemini : 
+peux-tu trpouver le problème de conception dans ce code et me l'ex^pliquer en 1 ou 2 phrases             class Controller extends AbstractController{
+	// ...
+
+	public function home() : void
+	{
+		$query = $this->db->prepare('SELECT * FROM users');
+		$parameters = [
+
+		];
+		$query->execute($parameters);
+		$result = $query->fetchAll(PDO::FETCH_ASSOC);
+	}
+
+	// ...}
+
+
+voila cxe que gemini m'as repondu : 
+
+Le problème majeur est la violation du principe de responsabilité unique (SRP) : un contrôleur ne devrait jamais manipuler directement la base de données ou écrire du SQL.
+
+Cela crée un couplage fort qui rend le code difficile à tester et à maintenir ; cette logique devrait être déléguée à une couche dédiée, comme un Repository ou un Modèle.
+
+Pourquoi est-ce problématique ?
+Duplication : Si tu as besoin de récupérer les utilisateurs ailleurs, tu devras copier-coller ton SQL.
+
+Évolutivité : Si le nom de ta table change, tu devras modifier tous tes contrôleurs au lieu d'un seul fichier de données.
+
+Aimerais-tu que je te montre comment refactoriser ce code en extrayant la requête dans une classe de service ou un Repository ?
+
+il,; m'explique le probleme, ce qu'il fait dans mon code, il m'explique pq c'est un probleme, et me propose un code alternative 

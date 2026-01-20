@@ -1,0 +1,74 @@
+ce que j'ai demandé a chat GPT : 
+peux-tu me relever l'erreur dans ce code et me la retourner <?php class User { public function __construct(private string $username) { } } $user = new User("Gaston"); echo $user->username;
+
+
+ce qu'il mas repondu : 
+
+
+Oui 👍
+Il y a une seule erreur, mais elle est fondamentale en PHP orienté objet.
+
+❌ Erreur dans ton code
+echo $user->username;
+
+
+👉 Problème :
+La propriété $username est déclarée private dans la classe User.
+
+public function __construct(private string $username)
+
+
+➡️ Une propriété private n’est accessible que depuis la classe elle-même, pas depuis l’extérieur.
+
+✅ Correction correcte (bonne pratique)
+
+Il faut passer par un getter.
+
+Code corrigé :
+<?php
+
+class User
+{
+    public function __construct(private string $username)
+    {
+    }
+
+    public function getUsername(): string
+    {
+        return $this->username;
+    }
+}
+
+$user = new User("Gaston");
+echo $user->getUsername();
+
+🧠 Pourquoi c’est important
+
+Respect de l’encapsulation
+
+Tu peux plus tard :
+
+valider la donnée
+
+la transformer
+
+la protéger
+
+⚠️ Alternative (pas recommandée)
+
+Changer private en public :
+
+public string $username;
+
+
+👉 Ça marche, mais mauvaise pratique en OOP.
+
+Si tu veux, je peux aussi t’expliquer :
+
+private vs protected vs public
+
+ou les constructeurs PHP 8 (property promotion) comme tu l’utilises ici 👌
+
+
+il m'as valider l'erreur il m'as expliquer pq c'etait une erreur ensuite il m'as proposer un  corrigé du code 
+avec une alternative même et pour finir il me propose de m'expliquer certaines pratiques 
