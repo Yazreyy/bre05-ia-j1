@@ -5,4 +5,6 @@ egenere moi un script shell qui permet d'afficher ta liste de parametres par ord
 sa reponse : 
 
 #!/bin/bash
-printf "%s\n" "$@" | sort 
+printf "%s\n" "$@" | sort
+
+Utilisation : ./script.sh orange pomme banane affichera les arguments triés alphabétiquement.
